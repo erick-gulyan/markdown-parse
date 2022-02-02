@@ -19,10 +19,14 @@ public class MarkdownParse {
             if( nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1) {
                 break;
             }
-            if( nextCloseBracket + 1 == openParen) {
+            if(markdown.charAt(nextOpenBracket-1) == '!'){
+                
+            }
+            else if( nextCloseBracket + 1 == openParen) {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
             currentIndex = closeParen + 1;
+            
         }
         return toReturn;
     }
